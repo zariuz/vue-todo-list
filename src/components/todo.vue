@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .todo {
   margin-top: 100px;
   background: #fff;
