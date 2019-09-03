@@ -2,23 +2,11 @@
   .todo-list
     .content
       ul.list
-        li.item
-          .todo-item
-            label.label
-              .input-block
-                input(type="checkbox").input
-              .title todo name
-            .button
-              button(type="button").remove x
-        li.item
-            .todo-item
-              label.label
-                .input-block
-                  input(type="checkbox").input
-                .title todo name
-              .button
-                button(type="button").remove x          
-
+        li.item(v-for="todo in todos")
+          todo-list-item(
+            :todo="todo"
+          )
+              
     .footer
       .footer-content
         .counter 10 items left
@@ -28,10 +16,15 @@
 
 <script>
 import todoListFilter from './todoListFilter';
+import todoListItem from './todoListItem';
 
 export default {
+  props: {
+    todos: Array
+  },
   components: {
-    todoListFilter
+    todoListFilter,
+    todoListItem
   }
 };
 </script>
@@ -47,47 +40,6 @@ export default {
   &:last-child {
     border-bottom: 0 none;
   }
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  &:hover {
-    .remove {
-      visibility: visible;
-    }
-  }
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
-.input-block {
-  width: 60px;
-  display: flex;
-  align-items: center;
-}
-
-.title {
-  padding: 15px 0;
-  display: block;
-  line-height: 1.2;
-}
-
-.buuton {
-  width: 40px;
-}
-
-.remove {
-  background: transparent;
-  border: none;
-  color: firebrick;
-  cursor: pointer;
-  font-size: 20px;
-  visibility: hidden;
 }
 
 .footer {

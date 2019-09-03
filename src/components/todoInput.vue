@@ -4,11 +4,32 @@
       type="text"
       placeholder="Todo Name"
       autofocus
+      v-model="todo.name"
+      @keydown.enter="addTodo"
     ).input
 </template>
 
 <script>
-export default {};
+let uniqId = 0;
+export default {
+  data() {
+    return {
+      todo: {
+        id: 0,
+        name: '',
+        checked: false
+      }
+    };
+  },
+  methods: {
+    addTodo() {
+      uniqId++;
+      this.todo.id = uniqId;
+      this.$emit('addTodo', { ...this.todo });
+      this.todo.name = '';
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

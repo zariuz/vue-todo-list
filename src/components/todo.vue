@@ -1,7 +1,13 @@
 <template lang="pug">
-  div.todo
-    todo-input
-    todo-list
+  div
+    div.todo
+      todo-input(
+        @addTodo="addTodo"
+      )
+      todo-list(
+        :todos="todos"
+      )
+    pre {{todos}}
 </template>
 
 <script>
@@ -9,6 +15,16 @@ import todoInput from './todoInput';
 import todoList from './todoList';
 
 export default {
+  data() {
+    return {
+      todos: []
+    };
+  },
+  methods: {
+    addTodo(todo) {
+      this.todos.push(todo);
+    }
+  },
   components: {
     todoInput,
     todoList
