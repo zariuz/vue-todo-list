@@ -6,6 +6,7 @@
           todo-list-item(
             :todo="todo"
             @removeTodo="removeTodo"
+            @checkTodo="checkTodo"
           )
               
     .footer
@@ -30,6 +31,9 @@ export default {
   methods: {
     removeTodo(todoId) {
       this.$emit('removeTodo', todoId);
+    },
+    checkTodo(todo) {
+      this.$emit('checkTodo', todo);
     }
   }
 };

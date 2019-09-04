@@ -8,6 +8,7 @@
         v-if="todos.length > 0"
         :todos="todos"
         @removeTodo="removeTodo"
+        @checkTodo="checkTodo"
       )
     pre {{todos}}
 </template>
@@ -28,7 +29,8 @@ export default {
     },
     removeTodo(todoId) {
       this.todos = this.todos.filter(item => item.id !== todoId);
-    }
+    },
+    checkTodo(todo) {}
   },
   components: {
     todoInput,
