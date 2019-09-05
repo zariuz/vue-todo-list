@@ -1,10 +1,11 @@
 <template lang="pug">
-  .todo-item.checked
+  .todo-item(:class="{checked: todo.checked}")
     label.label
       .input-block
         input(
           type="checkbox"
           @change="checkTodo"
+          :checked="todo.checked"
         ).input
       .title {{todo.name}}
     .button

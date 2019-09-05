@@ -9,8 +9,10 @@
         :todos="todos"
         @removeTodo="removeTodo"
         @checkTodo="checkTodo"
+        @filterTodos="filterTodos"
       )
     pre {{todos}}
+    pre {{filter}}
 </template>
 
 <script>
@@ -20,7 +22,8 @@ import todoList from './todoList';
 export default {
   data() {
     return {
-      todos: []
+      todos: [],
+      filter: 'all'
     };
   },
   methods: {
@@ -30,7 +33,12 @@ export default {
     removeTodo(todoId) {
       this.todos = this.todos.filter(item => item.id !== todoId);
     },
-    checkTodo(todo) {}
+    checkTodo(todo) {
+      this.todos = this.todos.map(item => (item.id === todo.id ? todo : item));
+    },
+    filterTodos(filter) {
+      this.filter = filter;
+    }
   },
   components: {
     todoInput,
