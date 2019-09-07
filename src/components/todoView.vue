@@ -1,9 +1,17 @@
 <template lang="pug">
-  h1 Компонент просмотра задания
+  div
+    h1 Компонент просмотра задания {{$route.params.todo}}
+    button(@click="goBack") Назад
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

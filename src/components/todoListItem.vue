@@ -9,10 +9,10 @@
         ).input
       .title {{todo.name}}
     .button
-      button(
-        type="button"
-        @click=""
-      ).view -> 
+      router-link(
+        tag="button"
+        :to="`/view/${todo.name}`"
+      ).view ->
     .button
       button(
         type="button"
