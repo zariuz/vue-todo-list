@@ -11,6 +11,11 @@
     .button
       button(
         type="button"
+        @click=""
+      ).view -> 
+    .button
+      button(
+        type="button"
         @click="removeTodo"
       ).remove x  
 </template>
@@ -44,7 +49,16 @@ export default {
     .remove {
       visibility: visible;
     }
+
+    .view {
+      visibility: visible;
+    }
   }
+}
+
+.view {
+  visibility: hidden;
+  cursor: pointer;
 }
 
 .checked .title {
