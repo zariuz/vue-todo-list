@@ -3,6 +3,7 @@
     button(
       v-for="filter in filters"
       type='button'
+      :class="{active: currentFilter === filter}"
       @click="filterTodos(filter)"
     ) {{filter}}
 </template>
@@ -11,11 +12,13 @@
 export default {
   data() {
     return {
-      filters: ['all', 'active', 'completed']
+      filters: ['all', 'active', 'completed'],
+      currentFilter: 'all'
     };
   },
   methods: {
     filterTodos(filter) {
+      this.currentFilter = filter;
       this.$emit('filterTodos', filter);
     }
   }
