@@ -74,6 +74,7 @@ export default {
 }
 
 .input-block {
+  margin-left: 15px;
   width: 60px;
   display: flex;
   align-items: center;
@@ -90,6 +91,7 @@ export default {
 }
 
 .remove {
+  margin: 10px;
   background: transparent;
   border: none;
   color: firebrick;
